@@ -58,6 +58,16 @@ public class Guava {
         }
     }
     
+    public var paused: Bool = false
+    public var isPaused: Bool {
+        get {
+            paused
+        }
+        set {
+            paused = newValue
+        }
+    }
+    
     var abuffer: [Float32] = .init(repeating: 0, count: 735)
     public func audiobuffer(_ completion: @escaping (_ buffer: [Float32]) -> Void) {
         emulator.setSamples(inside: &abuffer)
@@ -71,7 +81,6 @@ public class Guava {
     }
     
     public func button(button: NESKey, player: Int, pressed: Bool) {
-        print(player)
         if pressed {
             emulator.setButtonPressed(pad: player, button: button.rawValue)
         } else {

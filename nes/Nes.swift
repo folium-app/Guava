@@ -8,7 +8,7 @@
 
 import Foundation
 
-public final class Nes: MemoryHandler {
+public final class Nes: MemoryHandler, @unchecked Sendable {
     
     // state version
     let stateVersion: Int = 3
